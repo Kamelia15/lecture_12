@@ -26,7 +26,7 @@ def read_rows(file_name, row_number):
     :param row_number: (int), number of selected row
     :return: (list, int),
     """
-    with open(file_name) as csvfile:
+    with open(file_name,"r") as csvfile:
         data = csv.reader(csvfile)
 
         for line_index, line in enumerate(data):
@@ -63,26 +63,29 @@ def bubble_sort(number_array):
        :param number_array: (list,int), list with numeric array
        :return: (list, int), sorted numeric array
     """
-    for number in number_array:
-        index = 0
-        if number[index] > number[index + 1]:
+    for index in range(len(number_array) - 1):
+        for index_2 in range(0,len(number_array) - 1 - index):
+            if number_array[index_2] > number_array[index_2 + 1]:
+                number_array[index_2], number_array[index_2 + 1] = number_array[index_2 + 1],  number_array[index_2]
 
+    return number_array
 
 
 def main():
 
     # Ukol: Selection Sort
     file_name = "numbers_one.CSV"
-    funkce = read_row(file_name)
+    func = read_row(file_name)
 
 
     # Ukol: Selection Sort - se smerem razeni
-    sort_1 = selection_sort(funkce)
+    sort_1 = selection_sort(func)
 
     # Ukol: Bubble Sort
     funkce_2 = read_rows("numbers_two.CSV", 1)
-    print(funkce_2)
-    # sort_2 = bubble_sort()
+
+    sort_2 = bubble_sort(funkce_2)
+    print(sort_2)
 
     # příklad výpisu hodnot seřazené řady
     # print ("Seřazená řada čísel je:")

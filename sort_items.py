@@ -64,7 +64,7 @@ def bubble_sort(number_array):
        :return: (list, int), sorted numeric array
     """
     for index in range(len(number_array) - 1):
-        for index_2 in range(0,len(number_array) - 1 - index):
+        for index_2 in range(0, len(number_array) - 1 - index):
             if number_array[index_2] > number_array[index_2 + 1]:
                 number_array[index_2], number_array[index_2 + 1] = number_array[index_2 + 1],  number_array[index_2]
 
